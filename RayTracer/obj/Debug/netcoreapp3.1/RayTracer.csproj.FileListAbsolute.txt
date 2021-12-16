@@ -1,0 +1,14 @@
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\bin\Debug\netcoreapp3.1\RayTracer.exe
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\bin\Debug\netcoreapp3.1\RayTracer.deps.json
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\bin\Debug\netcoreapp3.1\RayTracer.runtimeconfig.json
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\bin\Debug\netcoreapp3.1\RayTracer.runtimeconfig.dev.json
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\bin\Debug\netcoreapp3.1\RayTracer.dll
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\bin\Debug\netcoreapp3.1\RayTracer.pdb
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.csproj.AssemblyReference.cache
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.AssemblyInfoInputs.cache
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.AssemblyInfo.cs
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.csproj.CoreCompileInputs.cache
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.dll
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.pdb
+C:\Users\Marafeti\Desktop\RayTracer\RayTracer\RayTracer\obj\Debug\netcoreapp3.1\RayTracer.genruntimeconfig.cache
