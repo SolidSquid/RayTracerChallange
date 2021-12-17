@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dv52wzFY/Ub74eJd/SKU0B4aYgSIxib70dWADuqHyuS/GaxThpBEnudx8JABAg3tu7m9+2SKZPh7ZENSoEq9EA==",
+  "dgSpecHash": "vz3rUkI7/LRL3gxzG4Js6uRQy3OsBzA3/fDoVcBq6n6ROukfEt7aCWhQ4R8fXxH08cZe4YKCrFWIuBhmY4PTKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Marafeti\\Desktop\\RayTracer\\RayTracer\\RayTracer.Test\\RayTracer.Test.csproj",
+  "projectFilePath": "C:\\Users\\Marafeti\\Desktop\\RayTracerChallange\\RayTracer.Test\\RayTracer.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marafeti\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",
     "C:\\Users\\Marafeti\\.nuget\\packages\\microsoft.codecoverage\\16.9.4\\microsoft.codecoverage.16.9.4.nupkg.sha512",

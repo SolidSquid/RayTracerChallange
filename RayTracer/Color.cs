@@ -2,7 +2,7 @@
 
 namespace RayTracer
 {
-    class Color : Tuple
+    public class Color : Tuple
     {
         public float R;
         public float G;

@@ -4975,11 +4975,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Marafeti\\Desktop\\RayTracer\\RayTracer\\RayTracer.Test\\RayTracer.Test.csproj",
+      "projectUniqueName": "C:\\Users\\Marafeti\\Desktop\\RayTracerChallange\\RayTracer.Test\\RayTracer.Test.csproj",
       "projectName": "RayTracer.Test",
-      "projectPath": "C:\\Users\\Marafeti\\Desktop\\RayTracer\\RayTracer\\RayTracer.Test\\RayTracer.Test.csproj",
+      "projectPath": "C:\\Users\\Marafeti\\Desktop\\RayTracerChallange\\RayTracer.Test\\RayTracer.Test.csproj",
       "packagesPath": "C:\\Users\\Marafeti\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Marafeti\\Desktop\\RayTracer\\RayTracer\\RayTracer.Test\\obj\\",
+      "outputPath": "C:\\Users\\Marafeti\\Desktop\\RayTracerChallange\\RayTracer.Test\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5000,8 +5000,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\Marafeti\\Desktop\\RayTracer\\RayTracer\\RayTracer\\RayTracer.csproj": {
-              "projectPath": "C:\\Users\\Marafeti\\Desktop\\RayTracer\\RayTracer\\RayTracer\\RayTracer.csproj"
+            "C:\\Users\\Marafeti\\Desktop\\RayTracerChallange\\RayTracer\\RayTracer.csproj": {
+              "projectPath": "C:\\Users\\Marafeti\\Desktop\\RayTracerChallange\\RayTracer\\RayTracer.csproj"
             }
           }
         }
