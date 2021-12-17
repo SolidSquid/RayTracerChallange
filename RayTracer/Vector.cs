@@ -112,6 +112,10 @@ namespace RayTracer
                 Y = a.Z*b.X-a.X*b.Z,
                 Z = a.X*b.Y-a.Y-b.X
         };
-        } 
+        }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

@@ -46,5 +46,10 @@ namespace RayTracer
                 W = b.W - a.W
             };
         }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

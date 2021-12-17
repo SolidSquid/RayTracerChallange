@@ -12,5 +12,9 @@ namespace RayTracer
             this.Gravity = Gravity;
             this.Wind = Wind;
         }
+        public Environment()
+        {
+
+        }
     }
 }

@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using System;
 
 namespace RayTracer
 {
     public class Canvas
     {
         public int Width;
-        public int Heidht;
-        Color[,] colormatrix; // Although named matrix, its multiple arrays that can behave like a matrix, to a certain degree
+        public int Height;
+        Color[,] colormatrix;  // Although named matrix, its multiple arrays that can behave like a matrix, to a certain degree
 
-        public Canvas (int height =256, int width=256) // Creates a black canvas 
+        public Canvas (int height =255, int width=255)  // Creates a black canvas 
         {
-            this.Heidht = height;
+            this.Height = height;
             this.Width = width;
-            colormatrix = new Color[Heidht, Width];
+            colormatrix = new Color[Height, Width];
             FillCanvas(Color.Black);
         }
 
         public void FillCanvas(Color c)
         {
-            for (int i = 0; i < Heidht; i++)
+            for (int i = 0; i < Height; i++)
             {
                 for (int j = 0; j < Width; j++)
                 {
@@ -29,9 +28,26 @@ namespace RayTracer
             }
         }
 
-        public void WritePixel(Canvas a, Color c, int x, int y) // Writes RGB to specified pixol (only uses x and y component of Point)
+        public void WritePixel(Color c, int z, int y)  // Writes RGB to specified pixol
         {
-            a.colormatrix[x, y] = c;   //might be smart to create a Pixel Class to store X and Y Pixel positions;
+            if (z >= 0 && y >= 0 && z < Width && y < Height)
+                colormatrix[y, z] = c;   //might be smart to create a Pixel Class to store X and Y Pixel positions
+            else
+            {
+
+            }
         }
+        
+      public Color GetPixel(int z, int y)
+        {
+            Color temp = new Color();
+ //           Console.WriteLine("X:" + x +" "+ "Y:" + y);
+            if (z >= 0 && y >= 0 && y < Width && z < Height)
+            {
+             //   Console.WriteLine("INSIDE" +" "+ "X:" + x + " " + "Y:" + y);
+                temp = colormatrix[z, y];
+            }
+            return temp;
+        } 
     }
 }

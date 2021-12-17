@@ -1,39 +1,28 @@
 ﻿
-
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RayTracer
+
 {
     class Program
     {
-
-
-        public Projectile Tick(Environment env, Projectile prj)
+        static void Main(string[] args)
         {
-            prj.Position = prj.Position + prj.Velocity;
-            prj.Velocity = prj.Velocity + env.Gravity + env.Wind;
-            return new Projectile(prj.Position, prj.Velocity);
-        }
+            Canvas bg = new Canvas(140,255);
 
+        
+            var pjPoints = Temp.ShootProjectile(new Environment(), new Projectile());
 
-        public Point ShootProjectile(Environment env, Projectile prj)
-        {
-            prj.Position = new Point(0f, 1f,0f);
-            prj.Velocity = Vector.Normalize(new Vector(1,1,0));
-            env.Gravity = new Vector(0, -0.1f, 0);
-            env.Wind = new Vector(-0.01f, 0, 0);
-
-            int MaxLoops = 60000;
-            int i = 0;
-
-            while (i < MaxLoops ^ prj.Position.Y <= 0)
+            for (int i = 0; i < pjPoints.Count; i++)
             {
-                Tick(env, prj);
-                return prj.Position;
+                bg.WritePixel(Color.Orange, (int)MathF.Round(pjPoints[i].Z), bg.Height - (int)MathF.Round(pjPoints[i].Y));
             }
 
-            return prj.Position;
+            Save.SaveCanvas(bg, "Skouris");
+
 
         }
     }
-
 }

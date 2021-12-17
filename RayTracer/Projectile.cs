@@ -13,6 +13,11 @@ namespace RayTracer
             this.Position = Position;
             this.Velocity = Velocity;
         }
+        
+        public Projectile()
+        {
+
+        }
     }
 
 
