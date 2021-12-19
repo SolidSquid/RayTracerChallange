@@ -2,7 +2,7 @@
 
 namespace RayTracer
 {
-    public class Vector : Tuple
+    public class Vector : Tuple    //How to also make this a Array/List in order to use Vector[i]?
     {
         public Vector(float x, float y, float z) : base(x, y, z, 0)
         {
