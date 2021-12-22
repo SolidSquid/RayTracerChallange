@@ -44,7 +44,125 @@ namespace RayTracer
             Mat[3, 3] = a44;
         }
 
-        public static Mat4 Identity()         // why not : base?
+
+        public static Mat4 Translation(float x, float y, float z)
+        {
+            Mat4 temp = new Mat4();                                           //if I only do Mat4 temp, is that empty?
+            temp.Mat[0,3] = x;
+            temp.Mat[1,3] = y;
+            temp.Mat[2,3] = z;
+            temp.Mat[3,3] = 1;
+            return temp;
+        }
+
+        public static Mat4 Translation(Vector v)                             //w is zero, nothing will happen
+        {
+            Mat4 temp = new Mat4();                                           
+            temp.Mat[0, 3] = v.X;
+            temp.Mat[1, 3] = v.Y;
+            temp.Mat[2, 3] = v.Z;
+            temp.Mat[3, 3] = v.X;
+            return temp;
+        }
+
+        public static Mat4 Translation(Point p)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 3] = p.X;
+            temp.Mat[1, 3] = p.Y;
+            temp.Mat[2, 3] = p.Z;
+            temp.Mat[3, 3] = p.X;
+            return temp;
+        }
+
+        public static Mat4 Scale(float x, float y, float z)
+        {
+            Mat4 temp = new Mat4();                                          
+            temp.Mat[0, 0] = x;
+            temp.Mat[1, 1] = y;
+            temp.Mat[2, 2] = z;
+            temp.Mat[3, 3] = 1;
+            return temp;
+        }
+        public static Mat4 Scale(Vector v)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 0] = v.X;
+            temp.Mat[1, 1] = v.Y;
+            temp.Mat[2, 2] = v.Z;
+            temp.Mat[3, 3] = v.X;
+            return temp;
+        }
+
+        public static Mat4 Scale(Point p)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 0] = p.X;
+            temp.Mat[1, 1] = p.Y;
+            temp.Mat[2, 2] = p.Z;
+            temp.Mat[3, 3] = p.X;
+            return temp;
+        }
+
+        public static Mat4 Rotation_X(float r)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 0] = 1;
+            temp.Mat[1, 1] = System.MathF.Cos(r);
+            temp.Mat[1, 2] = -System.MathF.Sin(r);
+            temp.Mat[2, 1] = System.MathF.Sin(r);
+            temp.Mat[2, 2] = System.MathF.Cos(r);
+            temp.Mat[3, 3] = 1;
+            return temp;
+        }
+
+        public static Mat4 Rotation_Y(float r)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 0] = System.MathF.Cos(r);
+            temp.Mat[1, 1] = 1;
+            temp.Mat[2, 0] = -System.MathF.Sin(r);
+            temp.Mat[0, 2] = System.MathF.Sin(r);
+            temp.Mat[2, 2] = System.MathF.Cos(r);
+            temp.Mat[3, 3] = 1;
+
+            return temp;
+        }
+
+        public static Mat4 Rotation_Z(float r)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 0] = System.MathF.Cos(r);
+            temp.Mat[1, 1] = System.MathF.Cos(r);
+            temp.Mat[0, 1] = -System.MathF.Sin(r);
+            temp.Mat[1, 0] = System.MathF.Sin(r);
+            temp.Mat[2, 2] = 1;
+            temp.Mat[3, 3] = 1;
+
+            return temp;
+        }
+
+        public static Mat4 Shear(float Xy,float Xz, float Yx, float Yz, float Zx, float Zy)
+        {
+            Mat4 temp = new Mat4();
+            temp.Mat[0, 0] = 1;
+            temp.Mat[0, 1] = Xy;
+            temp.Mat[0, 2] = Xz;
+
+            temp.Mat[1, 0] = Yx;
+            temp.Mat[1, 1] = 1;
+            temp.Mat[1, 2] = Yz;
+
+            temp.Mat[2, 0] = Zx;
+            temp.Mat[2, 1] = Zy;
+            temp.Mat[2, 2] = 1;
+
+            temp.Mat[3, 3] = 1;
+
+            return temp;
+        }
+
+        public static Mat4 Identity() 
         {
             Mat4 temp;
             temp = new Mat4();
