@@ -2,7 +2,8 @@
 
 namespace RayTracer
 {
-    public class Vector : Tuple    //How to also make this a Array/List in order to use Vector[i]?
+    public class Vector : Tuple    // Should have created an array in first place in order to avoid all that Enumerator BS, will see if need to fill in matrices with Vectors in the actual RT
+
     {
         public Vector(float x, float y, float z) : base(x, y, z, 0)
         {

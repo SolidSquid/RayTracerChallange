@@ -24,18 +24,23 @@ namespace RayTracer
 
 
         } */
-        static void Main(string[] args)
+ /*       static void Main(string[] args)                    //Chapter 3
         {
-         Mat4 a;
-            Mat4 a1;
-            Mat4 a2;
-            bool g;
+            Mat4 I = Mat4.Identity();
+            Mat4 a = new Mat4(1, 2, 3, 4, 4, 3, 2, 1, 7, 8, 9, 4, 5, 6, 2, 4);
+            var aInverse = Mat4.Inverse(a);
+            var aMultWithInver = a * aInverse;
+            var okey = new Vector(1, 2, 3);
 
-            a = new Mat4(1, 2, 3, 4, 1, 2, 3, 4, 1, 2, 3, 4, 4, 2, 3, 1);
-            a1 = Mat4.Transpose(a);
-            a2 = new Mat4(1, 2, 3, 2, 1, 2, 3, 4, 1, 2, 3, 4, 4, 2, 3, 1);
-            g = Mat4.IsEqual(a, a2);
-            Console.WriteLine(g);
+            var b = Mat4.Inverse(Mat4.Transpose(a));
+            var c = Mat4.Transpose(Mat4.Inverse(a));
+
+            System.Console.WriteLine(Mat4.IsEqual(b, c));
+
+
+            Mat4 notIndent = new Mat4(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+            var g = notIndent * okey;
+            System.Console.WriteLine(Mat4.IsEqual(b, c));
         }
-    }
+    } */
 }

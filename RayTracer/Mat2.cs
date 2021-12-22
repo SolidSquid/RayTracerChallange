@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace RayTracer
 {
@@ -76,6 +74,20 @@ namespace RayTracer
                     {
                         temp.Mat[i, j] = temp.Mat[i, j] + (a.Mat[i, k] * b.Mat[k, j]);
                     }
+                }
+            }
+            return temp;
+        }
+        public static Mat2 operator *(float k, Mat2 m) // Matrix Times constant
+        {
+            Mat2 temp;
+            temp = new Mat2();
+
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    temp.Mat[i, j] = m.Mat[i, j] * k;
                 }
             }
             return temp;

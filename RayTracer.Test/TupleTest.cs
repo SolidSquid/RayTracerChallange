@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 
 namespace RayTracer.Test
+
 {
-    class TupleTest
+ /*  class TupleTest
     {
-        [Test]
+       [Test]
         public void TupleAdditionTest()
         {
             var tuples = new List<Tuple>() { new Tuple { X = 1, Y = 2, Z = 3, W = 1, }, new Tuple { X = 1, Y = 2, Z = 3, W = 0 } };
@@ -29,4 +30,5 @@ namespace RayTracer.Test
 
         }
     }
+ */
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace RayTracer
 {
     public class Mat4 : Matrix          //get set index same as vector todo
@@ -73,6 +70,84 @@ namespace RayTracer
             }
             return transpose;
         }
+        public static Mat3 SubM(Mat4 o, int x, int y)          //Delets a Row X and column Y and returns the remainingg 3x3 Matrix
+        {
+            Mat3 minor = new Mat3();
+            int m = 0;
+
+            for (int i=0; i<4; i++)
+            {
+               
+                int n = 0;
+                if (i == x)
+                    continue;
+
+                for (int j = 0; j < 4; j++)
+                {     
+                    if (j == y)
+                        continue;
+
+                minor.Mat[m, n] = o.Mat[i, j];
+                    n++;
+                }
+                m++;
+            }
+            return minor;
+        }
+
+        public static Mat4 Inverse(Mat4 m)                               // Returns the Inveres of a Matrix, if Matrix not reversible, returns the initial Matrix
+        {
+            float det = Mat4.Det(m);
+            if (det != 0)
+            {
+                Mat4 temp = new Mat4();
+
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 4; j++)
+                    {
+                        temp.Mat[i, j] = Cofactor(m, j, i) / det;       //Division takes long, maybe i should 1 with det and then multiply on every loop
+                    }
+                }
+                return temp;
+            }
+            else 
+            {
+                System.Console.WriteLine("Non reversible Matrix");
+                return m;
+            } 
+                
+        }
+
+        public static float Det(Mat4 m)                                  //Determinant of a 4x4 Matrix, Minors a11, a12, a13, a14
+        {
+            float det = 0;
+            for (int j = 0; j < 4; j++)
+            {
+                det = det + m.Mat[0,j]*Cofactor(m, 0, j);
+            }
+            return det;
+        }
+
+        public static float Minor(Mat4 m, int x, int y)                   // Creates a 2x2 SubMatrix and computes its Determinant
+        {
+            float minor;
+            Mat3 temp = Mat4.SubM(m, x, y);
+            minor = Mat3.Det(temp);
+            return minor;
+        }
+
+        public static float Cofactor(Mat4 m, int x, int y)                      // Creates a minor and choses its sign (basic linear algebra)
+        {
+            float cofactor;
+            if ((x + y) % 2 == 0)
+                cofactor = Minor(m, x, y);
+
+            else
+                cofactor = -Minor(m, x, y);
+
+            return cofactor;
+        }
 
         public static Mat4 operator *(Mat4 a, Mat4 b) //Standart Matrix Multiplication //Can i do this in Parent?
         {
@@ -87,6 +162,20 @@ namespace RayTracer
                     {
                         temp.Mat[i, j] = temp.Mat[i, j] + (a.Mat[i, k] * b.Mat[k, j]);
                     }
+                }
+            }
+            return temp;
+        }
+        public static Mat4 operator *(float k, Mat4 m) // Matrix Times constant
+        {
+            Mat4 temp;
+            temp = new Mat4();
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    temp.Mat[i, j] = m.Mat[i, j] * k;              
                 }
             }
             return temp;
@@ -140,7 +229,7 @@ namespace RayTracer
             temp.W = result[3];
             return temp;
         }
-        public static bool IsEqual(Mat4 a, Mat4 b)          // redo with epsilon
+        public static bool IsEqual(Mat4 a, Mat4 b)          // redo with epsilon!
         {
             if (a.Mat[0, 0] == b.Mat[0, 0] &&
                 a.Mat[0, 1] == b.Mat[0, 1] &&

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
 
 namespace RayTracer
 {
@@ -63,7 +61,63 @@ namespace RayTracer
             return transpose;
         }
 
-        public static Mat3 operator *(Mat3 a, Mat3 b) //Standart Matrix Multiplication //Can i do this in Parent?
+
+        public static Mat2 SubM(Mat3 o, int x, int y)          //Delets a Row X and column Y and returns the remainingg 2x2 Matrix
+        {
+            Mat2 minor = new Mat2();
+            int m = 0;
+
+            for (int i = 0; i < 3; i++)
+            {
+
+                int n = 0;
+                if (i == x)
+                    continue;
+
+                for (int j = 0; j < 3; j++)
+                {
+                    if (j == y)
+                        continue;
+
+                    minor.Mat[m, n] = o.Mat[i, j];
+                    n++;
+                }
+                m++;
+            }
+            return minor;
+        }
+
+        public static float Det (Mat3 m)                                      //Determinant of a 3x2 Matrix, Minors a11, a12, a13
+        {
+            float det=0;
+            for (int j = 0; j < 3; j++)
+                {
+                det = det + m.Mat[0,j]*Cofactor(m, 0, j);
+                }
+            return det;
+        }
+        
+        public static float Minor (Mat3 m, int x, int y)                   // Creates a 2x2 SubMatrix and computes its Determinant
+        {
+            float minor;
+            Mat2 temp = Mat3.SubM(m, x, y);
+            minor = Mat2.Det(temp);
+            return minor;
+        }
+
+        public static float Cofactor(Mat3 m, int x, int y)                      // Creates a minor and choses its sign (basic linear algebra)
+        {
+            float cofactor;
+            if ((x + y) % 2 == 0)
+                cofactor = Minor(m, x, y);
+
+            else
+                cofactor = -Minor(m, x, y);
+
+            return cofactor;
+        }
+
+        public static Mat3 operator *(Mat3 a, Mat3 b)                      //Standart Matrix Multiplication //Can i do this in Parent?
         {
             Mat3 temp;
             temp = new Mat3();
@@ -79,6 +133,42 @@ namespace RayTracer
                 }
             }
             return temp;
+        }
+
+        public static Mat3 operator *(float k, Mat3 m) // Matrix Times constant
+        {
+            Mat3 temp;
+            temp = new Mat3();
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    temp.Mat[i, j] = m.Mat[i, j] * k;
+                }
+            }
+            return temp;
+        }
+
+        public static bool IsEqual(Mat3 a, Mat3 b)          // redo with epsilon!
+        {
+            if (a.Mat[0, 0] == b.Mat[0, 0] &&
+                a.Mat[0, 1] == b.Mat[0, 1] &&
+                a.Mat[0, 2] == b.Mat[0, 2] &&
+
+                a.Mat[1, 0] == b.Mat[1, 0] &&
+                a.Mat[1, 1] == b.Mat[1, 1] &&
+                a.Mat[1, 2] == b.Mat[1, 2] &&
+
+                a.Mat[2, 0] == b.Mat[2, 0] &&
+                a.Mat[2, 1] == b.Mat[2, 1] &&
+                a.Mat[2, 2] == b.Mat[2, 2])
+
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }

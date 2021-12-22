@@ -9,6 +9,7 @@ namespace RayTracer.Test
         public Mat4 a2;
         public Mat4 a3;
         public Mat3 b;
+        public Mat3 b1;
         public Mat2 c;
 
         public Vector v;
@@ -30,6 +31,34 @@ namespace RayTracer.Test
             Assert.AreEqual(a.Mat[2, 2], 11);
             Assert.AreEqual(a.Mat[3, 0], 13.5);
             Assert.AreEqual(a.Mat[3, 2], 15.5);
+        }
+
+        [Test]
+        public void SubMTest()
+        {
+            a = new Mat4(1, 2, 3, 4, 5.5f, 6.5f, 7.5f, 8.5f, 9, 10, 11, 12, 13.5f, 14.5f, 15.5f, 16.5f);
+            b = Mat4.SubM(a, 1, 0);
+            b1 = new Mat3(2, 3, 4, 10, 11, 12, 14.5f, 15.5f, 16.5f);
+            Assert.AreEqual(true, Mat3.IsEqual(b,b1));
+        }
+
+        [Test]
+        public void MinorTesst()
+        {
+            b = new Mat3(3, 5, 0, 2, -1, -7, 6, -1, 5);
+            c = Mat3.SubM(b, 1, 0);
+            float g = Mat2.Det(c);
+            Assert.AreEqual(g, 25);
+        }
+
+        [Test]
+        public void CofactorTest()
+        {
+            b = new Mat3(3, 5, 0, 2, -1, -7, 6, -1, 5);
+            Assert.AreEqual(Mat3.Minor(b, 0, 0), -12);
+            Assert.AreEqual(Mat3.Cofactor(b, 0, 0), -12);
+            Assert.AreEqual(Mat3.Minor(b, 1, 0), 25);
+            Assert.AreEqual(Mat3.Cofactor(b, 1, 0), -25);
 
         }
 
@@ -90,11 +119,46 @@ namespace RayTracer.Test
         }
 
         [Test]
-        public void DetTest()
+        public void Det2Test()
         {
             c = new Mat2(1, 5, -3, 2);
             Assert.AreEqual(17, Mat2.Det(c));
 
         }
+
+        [Test]
+        public void Det4Test()
+        {
+            a = new Mat4(-2,-8,3,5,-3,1,7,3,1,2,-9,6,-6,7,7,-9);
+            Assert.AreEqual(Mat4.Det(a),-4071); //Getter for set? Or Det in Static?;
+
+        }
+
+        [Test]
+        public void InverseTest()
+        {
+            a = new Mat4(1, 1, 1, 0, 0, 3, 1, 2, 2, 3, 1, 0, 1, 0, 2, 1);
+            a2 = Mat4.Inverse(a);
+            Assert.AreEqual(a2.Mat[0, 0], -3);
+            Assert.AreEqual(a2.Mat[0, 1], -0.5);
+            Assert.AreEqual(a2.Mat[0, 2], 1.5);
+            Assert.AreEqual(a2.Mat[0, 3], 1);
+
+            Assert.AreEqual(a2.Mat[1, 0], 1);
+            Assert.AreEqual(a2.Mat[1, 1], 0.25);
+            Assert.AreEqual(a2.Mat[1, 2], -0.25);
+            Assert.AreEqual(a2.Mat[1, 3], -0.5);
+
+            Assert.AreEqual(a2.Mat[2, 0], 3);
+            Assert.AreEqual(a2.Mat[2, 1], 0.25);
+            Assert.AreEqual(a2.Mat[2, 2], -1.25);
+            Assert.AreEqual(a2.Mat[2, 3], -0.5);
+
+            Assert.AreEqual(a2.Mat[3, 0], -3);
+            Assert.AreEqual(a2.Mat[3, 1], 0);
+            Assert.AreEqual(a2.Mat[3, 2], 1);
+            Assert.AreEqual(a2.Mat[3, 3], 1);
+        }
+
     }
 }
