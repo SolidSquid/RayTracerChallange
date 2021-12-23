@@ -21,13 +21,13 @@ namespace RayTracer
                 Y = a.Y + b.Y,
                 Z = a.Z + b.Z,
                 W = a.W + b.W
-                
+
             };
         }
 
         public static Vector operator -(Vector a, Vector b)
         {
-            return new Vector                 
+            return new Vector
             {
                 X = a.X - b.X,
                 Y = a.Y - b.Y,
@@ -40,10 +40,10 @@ namespace RayTracer
         {
             return new Vector
             {
-                X = 0-a.X,
-                Y = 0-a.Y, 
-                Z = 0-a.Z, 
-                W = 0-a.W 
+                X = 0 - a.X,
+                Y = 0 - a.Y,
+                Z = 0 - a.Z,
+                W = 0 - a.W
             };
         }
 
@@ -71,52 +71,67 @@ namespace RayTracer
         {
             return new Vector
             {
-                X = a.X/b,
-                Y = a.Y/b,
-                Z = a.Z/b,
-                W = a.W/b
+                X = a.X / b,
+                Y = a.Y / b,
+                Z = a.Z / b,
+                W = a.W / b
             };
         }
-        public static float VectorMagnitude (Vector a)
+        public static float VectorMagnitude(Vector a)
         {
 
-             float temp = MathF.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
-            return temp;           
+            float temp = MathF.Sqrt((a.X * a.X) + (a.Y * a.Y) + (a.Z * a.Z));
+            return temp;
         }
 
-        public static Vector Normalize(Vector a)           
+        public static Vector Normalize(Vector a)
         {
-            if (VectorMagnitude(a) == 0  )
+            if (VectorMagnitude(a) == 0)
             {
                 return new Vector(0, 0, 0);
             }
-            
-            else 
+
+            else
                 return new Vector
-            {
-                X = a.X / VectorMagnitude(a),
-                Y = a.Y / VectorMagnitude(a),
-                Z = a.Z / VectorMagnitude(a)
-               
-            };
+                {
+                    X = a.X / VectorMagnitude(a),
+                    Y = a.Y / VectorMagnitude(a),
+                    Z = a.Z / VectorMagnitude(a)
+
+                };
 
         }
-        public static float Dot (Vector a, Vector b)
+        public static float Dot(Vector a, Vector b)
         {
-           return  a.X*b.X+a.Y*b.Y+a.Z*b.Z;
+            return a.X * b.X + a.Y * b.Y + a.Z * b.Z;
         }
         public static Vector Cross(Vector a, Vector b)
         {
             return new Vector
             {
-                X = a.Y*b.Z-a.Z*b.Y,
-                Y = a.Z*b.X-a.X*b.Z,
-                Z = a.X*b.Y-a.Y-b.X
-        };
+                X = a.Y * b.Z - a.Z * b.Y,
+                Y = a.Z * b.X - a.X * b.Z,
+                Z = a.X * b.Y - a.Y - b.X
+            };
         }
         public override string ToString()
         {
             return base.ToString();
+        }
+
+        public static bool IsEqual(Vector a, Vector b)
+        {
+            if (a.X == b.X && a.Y == b.Y && a.Z == b.Z)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+               
+                   
+
         }
     }
 }

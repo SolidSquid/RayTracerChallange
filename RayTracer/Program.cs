@@ -45,15 +45,33 @@ namespace RayTracer
            } */
 
 
-               static void Main(string[] args)                    //Chapter 4
-              {
-                     Point P = new Point(1, 0, 1);
-            Mat4 A = Mat4.Rotation_X(1 / 2);
-            Mat4 B = Mat4.Scale(5, 5, 5);
-            Mat4 C = Mat4.Translation(10, 5, 7);
-            Point g = A * P;
-            g = B * g;
-            g = C * g;
-              }
-          } 
+        /*        static void Main(string[] args)                                   //chapter 4
+               {
+                    Canvas Background = new Canvas(100, 100);  // Y, Z
+                    Point Pixel = new Point(0,0,0);
+                    Pixel = Mat4.Translation(0, 0, 40) * Pixel;
+                    Point[] Pixels = new Point[12];
+
+                    for (int i=0; i < 12; i++)
+                    {
+                        Pixels[i] = Mat4.Rotation_X((float)i*MathF.PI / 6f) * Pixel;
+                        Pixels[i] = Mat4.Translation(0, 50, 50)*Pixels[i];
+                        Background.WritePixel(Color.Fuchsia, (Pixels[i].Y), (Pixels[i].Z));
+                    }    
+
+                    Save.SaveCanvas(Background, "clock");
+
+                }*/
+
+            static void Main(string[] args)                                   //chapter 5
+             {
+
+
+             }
+
+
+
+
+
     }
+}

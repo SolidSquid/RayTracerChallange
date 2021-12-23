@@ -47,17 +47,16 @@ namespace RayTracer
 
         public static Mat4 Translation(float x, float y, float z)
         {
-            Mat4 temp = new Mat4();                                           //if I only do Mat4 temp, is that empty?
+            Mat4 temp = Mat4.Identity();                                           //if I only do Mat4 temp, is that empty?
             temp.Mat[0,3] = x;
             temp.Mat[1,3] = y;
             temp.Mat[2,3] = z;
-            temp.Mat[3,3] = 1;
             return temp;
         }
 
         public static Mat4 Translation(Vector v)                             //w is zero, nothing will happen
         {
-            Mat4 temp = new Mat4();                                           
+            Mat4 temp = Mat4.Identity();
             temp.Mat[0, 3] = v.X;
             temp.Mat[1, 3] = v.Y;
             temp.Mat[2, 3] = v.Z;
@@ -67,7 +66,7 @@ namespace RayTracer
 
         public static Mat4 Translation(Point p)
         {
-            Mat4 temp = new Mat4();
+            Mat4 temp = Mat4.Identity();
             temp.Mat[0, 3] = p.X;
             temp.Mat[1, 3] = p.Y;
             temp.Mat[2, 3] = p.Z;

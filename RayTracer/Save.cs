@@ -54,7 +54,7 @@ namespace RayTracer
 //                        Console.WriteLine("Skouris reached"); 
 //                    }
                     //canvas.GetHeight() 
-                    Color color = canvas.GetPixel(x, y);
+                    Color color = canvas.GetPixel(canvas.Height - x, y);
 
                     string r = Clamp(color.R * maxValue, maxValue).ToString();
                     string g = Clamp(color.G * maxValue, maxValue).ToString();

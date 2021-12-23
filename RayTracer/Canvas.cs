@@ -14,22 +14,25 @@ namespace RayTracer
             this.Height = height;
             this.Width = width;
             colormatrix = new Color[Height, Width];
-            FillCanvas(Color.Black);
+            FillCanvas(this, Color.Black);
         }
 
-        public void FillCanvas(Color c)
+        public static void FillCanvas(Canvas a, Color c)
         {
-            for (int i = 0; i < Height; i++)
+            for (int i = 0; i < a.Height; i++)
             {
-                for (int j = 0; j < Width; j++)
+                for (int j = 0; j < a.Width; j++)
                 {
-                    colormatrix[i, j] = c;
+                    a.colormatrix[i, j] = c;
                 }
             }
         }
 
-        public void WritePixel(Color c, int z, int y)  // Writes RGB to specified pixol
+        public void WritePixel(Color c, float zf, float yf)  // Writes RGB to specified pixol
         {
+            int z = (int)MathF.Round(zf);
+            int y = (int)MathF.Round(yf);
+
             if (z >= 0 && y >= 0 && z < Width && y < Height)
                 colormatrix[y, z] = c;   //might be smart to create a Pixel Class to store X and Y Pixel positions
             else

@@ -51,5 +51,19 @@ namespace RayTracer
         {
             return base.ToString();
         }
+        public static bool IsEqual(Point a, Point b)
+        {
+            if (a.X == b.X && a.Y == b.Y && a.Z == b.Z)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+        }
     }
 }
